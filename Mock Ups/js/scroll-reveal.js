@@ -304,6 +304,53 @@
     updateScrollProgress();
   }
 
+  // ========== FEATURE DECK (clone cards for seamless loop) ==========
+
+  function initFeatureDeck() {
+    const track = document.getElementById('deckTrack');
+    if (!track) return;
+    const originals = Array.from(track.children);
+    originals.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+  }
+
+  // ========== LANGUAGE SWITCHER ==========
+
+  function initLangSwitcher() {
+    const switcher = document.getElementById('langSwitcher');
+    const toggle = document.getElementById('langToggle');
+    const menu = document.getElementById('langMenu');
+    const current = document.getElementById('langCurrent');
+
+    if (!switcher || !toggle || !menu || !current) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = switcher.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    menu.querySelectorAll('.lang-option').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        menu.querySelectorAll('.lang-option').forEach((o) => o.classList.remove('active'));
+        opt.classList.add('active');
+        current.textContent = opt.dataset.lang || 'EN';
+        switcher.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!switcher.contains(e.target)) {
+        switcher.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // ========== INITIALIZATION ==========
 
   /**
@@ -324,6 +371,8 @@
     initSmoothScroll();
     initActiveNavOnScroll();
     initMobileMenu();
+    initLangSwitcher();
+    initFeatureDeck();
 
     // Optional: Uncomment to enable scroll progress bar
     // initScrollProgress();

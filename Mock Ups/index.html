@@ -18,18 +18,53 @@
     <header class="nav-header" id="header">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">UGC Hoox</div>
-                <nav class="main-nav" id="mainNav">
-                    <a href="#about" class="nav-link">ABOUT US</a>
+                <a href="#hero" class="nav-left logo-link" aria-label="UGX Hoox home">
+                    <span class="logo-mark" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 6 L16 22 L26 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 22 L16 14 L22 22" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="logo-text">UGX HOOX</span>
+                </a>
+
+                <nav class="nav-center main-nav" id="mainNav">
+                    <a href="#about" class="nav-link">ABOUT</a>
                     <a href="#how-it-works" class="nav-link">HOW IT WORKS</a>
                     <a href="#pricing" class="nav-link">PRICING</a>
-                    <a href="#contact" class="nav-link">CONTACT</a>
+                    <a href="#questionnaire" class="nav-link">FAQ</a>
                 </nav>
-                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+
+                <div class="nav-right">
+                    <div class="lang-switcher" id="langSwitcher">
+                        <button type="button" class="lang-toggle" id="langToggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language">
+                            <svg class="lang-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                            <span class="lang-current" id="langCurrent">EN</span>
+                            <svg class="lang-caret" width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="lang-menu" id="langMenu" role="listbox">
+                            <li role="option" data-lang="EN" class="lang-option active">English</li>
+                            <li role="option" data-lang="ES" class="lang-option">Español</li>
+                            <li role="option" data-lang="FR" class="lang-option">Français</li>
+                            <li role="option" data-lang="DE" class="lang-option">Deutsch</li>
+                            <li role="option" data-lang="VI" class="lang-option">Tiếng Việt</li>
+                        </ul>
+                    </div>
+
+                    <a href="#contact" class="btn-waitlist">Join Waitlist</a>
+
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -51,10 +86,10 @@
                 <!-- Problem Attack Quote -->
                 <div class="problem-attack-quote">
                     <h1 class="attack-quote">
-                        <span class="quote-line line-1">Stop Guessing.</span>
-                        <span class="quote-line line-2">Start Posting <span class="highlight">Strategically.</span></span>
+                        <span class="quote-line line-1">Pitch Better.</span>
+                        <span class="quote-line line-2">Hook Harder. <span class="highlight">Grow Together.</span></span>
                     </h1>
-                    <p class="hero-subtext">AI-powered content analysis that transforms your UGC into engagement magnets</p>
+                    <p class="hero-subtext">The all-in-one platform for UGC creators — land brand deals with sharper pitches, score your hooks with AI, connect with other creators, and batch your content on one calendar.</p>
                     <a href="#how-it-works" class="hero-cta-btn">See How It Works</a>
                 </div>
             </div>
@@ -63,11 +98,30 @@
         <!-- ========== ABOUT US SECTION ========== -->
         <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title reveal">About Us</h2>
-                <p class="section-subtitle reveal">Transforming how creators optimize content</p>
+                <h2 class="section-title reveal">What We Do</h2>
+                <p class="section-subtitle reveal">One platform for UGC creators to pitch brands, sharpen hooks, connect with creators, and batch content</p>
                 <div class="about-grid">
                     <div class="about-card reveal-scale">
                         <div class="card-number">01</div>
+                        <div class="card-icon-wrapper">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 2L11 13"></path>
+                                    <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+                                </svg>
+                            </div>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="card-title">Pitch to Brands</h3>
+                        <p class="card-text">
+                            Land more deals with <strong>sharper brand pitches</strong> that sell your value to companies.
+                        </p>
+                        <div class="card-highlight">
+                            <span class="highlight-text">Get noticed. Get paid.</span>
+                        </div>
+                    </div>
+                    <div class="about-card reveal-scale">
+                        <div class="card-number">02</div>
                         <div class="card-icon-wrapper">
                             <div class="card-icon">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -76,29 +130,9 @@
                             </div>
                             <div class="icon-glow"></div>
                         </div>
-                        <h3 class="card-title">What is UGC Hoox</h3>
+                        <h3 class="card-title">Hook Analyzer</h3>
                         <p class="card-text">
-                            AI-powered content analysis that delivers <strong>instant feedback</strong> on what makes your content click.
-                        </p>
-                        <div class="card-highlight">
-                            <span class="highlight-text">Smart. Fast. Effective.</span>
-                        </div>
-                    </div>
-                    <div class="about-card reveal-scale">
-                        <div class="card-number">02</div>
-                        <div class="card-icon-wrapper">
-                            <div class="card-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <circle cx="12" cy="12" r="6"></circle>
-                                    <circle cx="12" cy="12" r="2"></circle>
-                                </svg>
-                            </div>
-                            <div class="icon-glow"></div>
-                        </div>
-                        <h3 class="card-title">What We Do</h3>
-                        <p class="card-text">
-                            Score your content on <strong>4 key dimensions</strong> with personalized improvement tips.
+                            Score every hook on <strong>4 key dimensions</strong> with AI-powered improvement tips.
                         </p>
                         <div class="card-metrics">
                             <span class="metric">Creativity</span>
@@ -112,78 +146,271 @@
                         <div class="card-icon-wrapper">
                             <div class="card-icon">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                                    <path d="M2 17l10 5 10-5"></path>
-                                    <path d="M2 12l10 5 10-5"></path>
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                 </svg>
                             </div>
                             <div class="icon-glow"></div>
                         </div>
-                        <h3 class="card-title">Why We Do It</h3>
+                        <h3 class="card-title">Creator Community</h3>
                         <p class="card-text">
-                            <strong>Pro-level insights</strong> for every creator. No gatekeeping, just results.
+                            Chat and collaborate with <strong>other UGC creators</strong> — swap tips, deals, and feedback.
                         </p>
                         <div class="card-highlight">
-                            <span class="highlight-text">Democratizing content success.</span>
+                            <span class="highlight-text">Grow together, not alone.</span>
+                        </div>
+                    </div>
+                    <div class="about-card reveal-scale">
+                        <div class="card-number">04</div>
+                        <div class="card-icon-wrapper">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </div>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="card-title">Batch &amp; Calendar</h3>
+                        <p class="card-text">
+                            Plan and <strong>batch your content</strong> with calendar updates that keep you posting consistently.
+                        </p>
+                        <div class="card-highlight">
+                            <span class="highlight-text">Plan once. Post all month.</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== HOW IT WORKS ========== -->
+        <!-- ========== SEE IT IN ACTION ========== -->
         <section id="how-it-works" class="demo-section">
             <div class="container">
-                <h2 class="section-title reveal">How It Works</h2>
+                <h2 class="section-title reveal">See It In Action</h2>
                 <p class="section-subtitle reveal">
-                    Paste your content, get instant AI-powered feedback
+                    Test-drive the tools &mdash; no signup, just click and watch
                 </p>
 
-                <!-- Auto Demo Animation Preview -->
-                <div class="auto-demo-preview reveal">
-                    <div class="demo-window">
-                        <div class="demo-window-header">
-                            <span class="demo-dot red"></span>
-                            <span class="demo-dot yellow"></span>
-                            <span class="demo-dot green"></span>
-                            <span class="demo-window-title">UGC Hoox AI</span>
+                <!-- VIDEO PLACEHOLDER: replace this entire block with your <video> or <iframe> embed -->
+                <div class="demo-video-placeholder reveal" data-video-src="">
+                    <span class="video-play-glyph" aria-hidden="true">&#9658;</span>
+                    <span class="video-placeholder-caption">Demo video &mdash; replace this block</span>
+                </div>
+                <!-- END VIDEO PLACEHOLDER -->
+
+                <div class="pillar-demo reveal">
+                    <div class="demo-tablist" role="tablist" aria-label="Product demos">
+                        <button class="demo-tab" role="tab" id="tab-pitch" aria-controls="panel-pitch" aria-selected="false" data-tab="pitch">Pitch to Brands</button>
+                        <button class="demo-tab" role="tab" id="tab-hook" aria-controls="panel-hook" aria-selected="true" data-tab="hook">Hook Analyzer</button>
+                        <button class="demo-tab" role="tab" id="tab-community" aria-controls="panel-community" aria-selected="false" data-tab="community">Creator Community</button>
+                        <button class="demo-tab" role="tab" id="tab-calendar" aria-controls="panel-calendar" aria-selected="false" data-tab="calendar">Batch &amp; Calendar</button>
+                    </div>
+
+                    <!-- HOOK: deep interactive -->
+                    <div class="demo-panel is-active" role="tabpanel" id="panel-hook" aria-labelledby="tab-hook" data-panel="hook">
+                        <p class="demo-panel-hint">Pick a sample script &mdash; watch the AI score its hook on 4 dimensions.</p>
+                        <div class="sample-chip-row">
+                            <button class="sample-chip" data-sample="0">Product launch</button>
+                            <button class="sample-chip" data-sample="1">Story hook</button>
+                            <button class="sample-chip" data-sample="2">Tutorial intro</button>
                         </div>
-                        <div class="demo-window-body">
-                            <div class="demo-input-box">
-                                <span class="demo-typing-text" id="demo-typing"></span>
-                                <span class="typing-cursor">|</span>
+                        <div class="demo-window">
+                            <div class="demo-window-header">
+                                <span class="demo-dot red"></span>
+                                <span class="demo-dot yellow"></span>
+                                <span class="demo-dot green"></span>
+                                <span class="demo-window-title">UGC Hoox AI</span>
                             </div>
-                            <div class="demo-feedback-output" id="demo-feedback">
-                                <div class="feedback-suggestion" id="feedback-suggestion">
-                                    <p class="suggestion-text">Great energy! Consider adding a stronger call-to-action and more emotional hooks to boost engagement.</p>
+                            <div class="demo-window-body">
+                                <div class="demo-input-box">
+                                    <span class="demo-sample-text" id="hook-sample-text"></span>
                                 </div>
-                                <div class="feedback-item" data-delay="0">
-                                    <span class="feedback-icon">&#x2714;</span>
-                                    <span class="feedback-label">Creativity</span>
-                                    <div class="mini-score-bar"><div class="mini-score-fill" data-target="85"></div></div>
-                                    <span class="mini-score-value">85%</span>
-                                </div>
-                                <div class="feedback-item" data-delay="1">
-                                    <span class="feedback-icon">&#x2714;</span>
-                                    <span class="feedback-label">Emotional Impact</span>
-                                    <div class="mini-score-bar"><div class="mini-score-fill" data-target="72"></div></div>
-                                    <span class="mini-score-value">72%</span>
-                                </div>
-                                <div class="feedback-item" data-delay="2">
-                                    <span class="feedback-icon">&#x2714;</span>
-                                    <span class="feedback-label">Call To Action</span>
-                                    <div class="mini-score-bar"><div class="mini-score-fill" data-target="90"></div></div>
-                                    <span class="mini-score-value">90%</span>
-                                </div>
-                                <div class="feedback-item" data-delay="3">
-                                    <span class="feedback-icon">&#x2714;</span>
-                                    <span class="feedback-label">Lengthy Punch</span>
-                                    <div class="mini-score-bar"><div class="mini-score-fill" data-target="78"></div></div>
-                                    <span class="mini-score-value">78%</span>
+                                <div class="demo-feedback-output" id="demo-feedback">
+                                    <div class="feedback-suggestion" id="feedback-suggestion">
+                                        <p class="suggestion-text" id="suggestion-text"></p>
+                                    </div>
+                                    <div class="feedback-item" data-delay="0">
+                                        <span class="feedback-icon">&#x2714;</span>
+                                        <span class="feedback-label">Creativity</span>
+                                        <div class="mini-score-bar"><div class="mini-score-fill" data-key="creativity"></div></div>
+                                        <span class="mini-score-value" data-key="creativity">0%</span>
+                                    </div>
+                                    <div class="feedback-item" data-delay="1">
+                                        <span class="feedback-icon">&#x2714;</span>
+                                        <span class="feedback-label">Emotional Impact</span>
+                                        <div class="mini-score-bar"><div class="mini-score-fill" data-key="emotion"></div></div>
+                                        <span class="mini-score-value" data-key="emotion">0%</span>
+                                    </div>
+                                    <div class="feedback-item" data-delay="2">
+                                        <span class="feedback-icon">&#x2714;</span>
+                                        <span class="feedback-label">Call To Action</span>
+                                        <div class="mini-score-bar"><div class="mini-score-fill" data-key="cta"></div></div>
+                                        <span class="mini-score-value" data-key="cta">0%</span>
+                                    </div>
+                                    <div class="feedback-item" data-delay="3">
+                                        <span class="feedback-icon">&#x2714;</span>
+                                        <span class="feedback-label">Lengthy Punch</span>
+                                        <div class="mini-score-bar"><div class="mini-score-fill" data-key="punch"></div></div>
+                                        <span class="mini-score-value" data-key="punch">0%</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- PITCH: preview -->
+                    <div class="demo-panel" role="tabpanel" id="panel-pitch" aria-labelledby="tab-pitch" data-panel="pitch" hidden>
+                        <div class="pitch-preview">
+                            <div class="pitch-head">
+                                <span>&#128233; Pitch sent to <strong>GlowSkin Co.</strong></span>
+                                <span class="pitch-status">In review</span>
+                            </div>
+                            <div class="pitch-stat">
+                                <span class="pitch-label">Brand fit</span>
+                                <div class="mini-score-bar"><div class="mini-score-fill" style="width:94%"></div></div>
+                                <span class="pitch-num">94%</span>
+                            </div>
+                            <div class="pitch-stat">
+                                <span class="pitch-label">Budget match</span>
+                                <div class="mini-score-bar"><div class="mini-score-fill" style="width:88%"></div></div>
+                                <span class="pitch-num">88%</span>
+                            </div>
+                            <div class="pitch-meta">
+                                <span>Budget $1.2K</span>
+                                <span>Niche &middot; Skincare</span>
+                                <span>Reply ~2 days</span>
+                            </div>
+                            <p class="preview-note">AI tailors every pitch to the brand's tone, budget, and recent campaigns.</p>
+                        </div>
+                        <button class="to-analyzer" data-target-tab="hook">Try the Analyzer &rarr;</button>
+                    </div>
+
+                    <!-- COMMUNITY: preview -->
+                    <div class="demo-panel" role="tabpanel" id="panel-community" aria-labelledby="tab-community" data-panel="community" hidden>
+                        <div class="community-preview">
+                            <div class="community-head"><span class="community-dot"></span> #ugc-deals &middot; <strong>312 creators online</strong></div>
+                            <div class="chat-msg">
+                                <span class="chat-avatar">M</span>
+                                <div class="chat-body"><span class="chat-name">@maya</span><p>Anyone worked with GlowSkin? Worth the rate?</p></div>
+                            </div>
+                            <div class="chat-msg">
+                                <span class="chat-avatar">J</span>
+                                <div class="chat-body"><span class="chat-name">@jonas</span><p>Yep &mdash; pitched via UGC Hoox, closed $1.4K &#127881;</p></div>
+                            </div>
+                            <div class="chat-msg">
+                                <span class="chat-avatar">L</span>
+                                <div class="chat-body"><span class="chat-name">@lia</span><p>Dropping my pitch template in the thread &rarr;</p></div>
+                            </div>
+                            <p class="preview-note">Swap deals, rates, and hooks with creators who've been there.</p>
+                        </div>
+                        <button class="to-analyzer" data-target-tab="hook">Try the Analyzer &rarr;</button>
+                    </div>
+
+                    <!-- CALENDAR: preview -->
+                    <div class="demo-panel" role="tabpanel" id="panel-calendar" aria-labelledby="tab-calendar" data-panel="calendar" hidden>
+                        <div class="calendar-preview">
+                            <div class="calendar-head">May 2026 &middot; <strong>12 posts scheduled</strong></div>
+                            <div class="calendar-dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+                            <div class="calendar-grid">
+                                <span class="cal-cell"></span><span class="cal-cell has-post"></span><span class="cal-cell"></span><span class="cal-cell has-post"></span><span class="cal-cell"></span><span class="cal-cell"></span><span class="cal-cell has-post"></span>
+                                <span class="cal-cell"></span><span class="cal-cell"></span><span class="cal-cell has-post"></span><span class="cal-cell"></span><span class="cal-cell has-post"></span><span class="cal-cell"></span><span class="cal-cell"></span>
+                                <span class="cal-cell has-post"></span><span class="cal-cell"></span><span class="cal-cell"></span><span class="cal-cell has-post"></span><span class="cal-cell"></span><span class="cal-cell has-post"></span><span class="cal-cell"></span>
+                                <span class="cal-cell"></span><span class="cal-cell has-post"></span><span class="cal-cell"></span><span class="cal-cell"></span><span class="cal-cell has-post"></span><span class="cal-cell"></span><span class="cal-cell has-post"></span>
+                            </div>
+                            <p class="preview-note">Batch a month of content, then auto-schedule across every account.</p>
+                        </div>
+                        <button class="to-analyzer" data-target-tab="hook">Try the Analyzer &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FEATURES DECK (UGC) ========== -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title reveal">Everything You Need to Win</h2>
+                <p class="section-subtitle reveal">Four tools, one platform — built for UGC creators</p>
+            </div>
+            <div class="deck-viewport reveal" id="featureDeck">
+                <div class="deck-track" id="deckTrack">
+
+                    <article class="feature-card">
+                        <div class="phone-frame">
+                            <span class="phone-notch"></span>
+                            <div class="video-reel reel-spy">
+                                <span class="reel-caption">Pitch sent to<br>GlowSkin Co.</span>
+                                <span class="reel-meta">Brand deal · in review</span>
+                                <div class="spy-panel">
+                                    <div class="spy-row"><span class="spy-label">Brand</span><span class="spy-value">GlowSkin</span></div>
+                                    <div class="spy-row"><span class="spy-label">Budget</span><span class="spy-value">$1.2K</span></div>
+                                    <div class="spy-row"><span class="spy-label">Match</span><span class="spy-value">94%</span></div>
+                                    <div class="spy-row"><span class="spy-label">Status</span><span class="spy-value">Sent</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="feature-title">Pitch to Brands</h3>
+                        <p class="feature-desc">Send sharper pitches that land paid deals.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="phone-frame">
+                            <span class="phone-notch"></span>
+                            <div class="video-reel reel-score">
+                                <span class="reel-caption">GRWM for a chaotic<br>Monday morning</span>
+                                <span class="reel-meta">@creator · 840K views</span>
+                                <div class="score-overlay">
+                                    <div class="score-row"><span>Creativity</span><div class="score-bar"><div class="score-fill" style="width:85%"></div></div><span>85</span></div>
+                                    <div class="score-row"><span>Emotion</span><div class="score-bar"><div class="score-fill" style="width:72%"></div></div><span>72</span></div>
+                                    <div class="score-row"><span>CTA</span><div class="score-bar"><div class="score-fill" style="width:90%"></div></div><span>90</span></div>
+                                    <div class="score-row"><span>Punch</span><div class="score-bar"><div class="score-fill" style="width:78%"></div></div><span>78</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="feature-title">Hook Analyzer</h3>
+                        <p class="feature-desc">4 hook dimensions, graded instantly by AI.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="phone-frame">
+                            <span class="phone-notch"></span>
+                            <div class="video-reel reel-remix">
+                                <span class="reel-caption">Creator chat<br>#ugc-deals</span>
+                                <span class="reel-meta">Community · 312 online</span>
+                                <div class="caption-stack">
+                                    <div class="caption-chip">💬 "Anyone worked with GlowSkin?"</div>
+                                    <div class="caption-chip">🤝 "Sharing my pitch template →"</div>
+                                    <div class="caption-chip">🔥 "This hook got me 2M, try it"</div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="feature-title">Creator Community</h3>
+                        <p class="feature-desc">Chat, swap tips, and grow with other creators.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="phone-frame">
+                            <span class="phone-notch"></span>
+                            <div class="video-reel reel-library">
+                                <span class="reel-caption">12 posts scheduled<br>this month</span>
+                                <span class="reel-meta">Content Calendar</span>
+                                <div class="template-grid">
+                                    <div class="template-tile tile-1"></div>
+                                    <div class="template-tile tile-2"></div>
+                                    <div class="template-tile tile-3"></div>
+                                    <div class="template-tile tile-4"></div>
+                                    <div class="template-tile tile-5"></div>
+                                    <div class="template-tile tile-6"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="feature-title">Batch &amp; Calendar</h3>
+                        <p class="feature-desc">Plan and batch a month of content in one view.</p>
+                    </article>
+
                 </div>
             </div>
         </section>
