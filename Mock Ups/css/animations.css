@@ -758,7 +758,7 @@
 .shape-1 {
   width: 400px;
   height: 400px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
   top: -100px;
   right: -100px;
   animation: floatShape1 20s ease-in-out infinite;
@@ -767,7 +767,7 @@
 .shape-2 {
   width: 300px;
   height: 300px;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #00426B, #00426B);
   bottom: -50px;
   left: -50px;
   animation: floatShape2 15s ease-in-out infinite;
@@ -776,7 +776,7 @@
 .shape-3 {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  background: linear-gradient(135deg, #1B5C8A, #003655);
   top: 50%;
   left: 10%;
   animation: floatShape3 18s ease-in-out infinite;
@@ -785,7 +785,7 @@
 .shape-4 {
   width: 250px;
   height: 250px;
-  background: linear-gradient(135deg, #fa709a, #fee140);
+  background: linear-gradient(135deg, #00426B, #00426B);
   bottom: 30%;
   right: 10%;
   animation: floatShape4 22s ease-in-out infinite;
@@ -847,7 +847,7 @@
 }
 
 .quote-line .highlight {
-  background: linear-gradient(135deg, #667eea 0%, #f093fb 50%, #f5576c 100%);
+  background: linear-gradient(135deg, #00426B 0%, #1B5C8A 50%, #00426B 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -869,7 +869,7 @@
   left: 0;
   width: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #f093fb, #f5576c);
+  background: linear-gradient(90deg, #00426B, #1B5C8A, #00426B);
   background-size: 200% 100%;
   animation: underlineGrow 0.8s ease-out 1.4s forwards, gradientFlow 3s ease-in-out infinite;
   border-radius: 2px;
@@ -890,7 +890,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
   border: none;
   border-radius: 50px;
   text-decoration: none;
@@ -899,12 +899,12 @@
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out 1.2s forwards;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 66, 107, 0.4);
 }
 
 .hero-cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6);
+  box-shadow: 0 15px 50px rgba(0, 66, 107, 0.6);
 }
 
 @keyframes slideInQuote {
@@ -955,14 +955,14 @@
 }
 
 .demo-window {
-  background: linear-gradient(145deg, #1e1e2e, #2d2d44);
+  background: linear-gradient(145deg, #14141F, #1E1E2C);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .demo-window-header {
-  background: linear-gradient(90deg, #2d2d44, #3d3d5c);
+  background: linear-gradient(90deg, #1E1E2C, #2A2A3C);
   padding: 12px 16px;
   display: flex;
   align-items: center;
@@ -1007,7 +1007,7 @@
 }
 
 .typing-cursor {
-  color: #667eea;
+  color: #00426B;
   animation: blink 0.8s infinite;
   font-weight: 100;
 }
@@ -1024,8 +1024,8 @@
 }
 
 .feedback-suggestion {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
-  border-left: 3px solid #667eea;
+  background: linear-gradient(135deg, rgba(0, 66, 107, 0.15), rgba(0, 54, 85, 0.15));
+  border-left: 3px solid #00426B;
   border-radius: 0 8px 8px 0;
   padding: 14px 16px;
   margin-bottom: 8px;
@@ -1082,7 +1082,7 @@
 }
 
 .feedback-icon {
-  color: #27ca40;
+  color: #00426B;
   font-size: 1rem;
 }
 
@@ -1103,13 +1103,13 @@
 .mini-score-fill {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(90deg, #00426B, #003655);
   border-radius: 3px;
   transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mini-score-value {
-  color: #667eea;
+  color: #00426B;
   font-size: 0.85rem;
   font-weight: 600;
   min-width: 40px;
@@ -1125,6 +1125,17 @@
 }
 
 /* ========== REDUCED MOTION ========== */
+/* Floating viral-clip backdrop drift (used by .clip-phone in #about) */
+@keyframes clipDriftA {
+  0%, 100% { transform: translateY(0)     rotate(var(--clip-rot, 0deg)); }
+  50%      { transform: translateY(-24px) rotate(calc(var(--clip-rot, 0deg) + 3deg)); }
+}
+
+@keyframes clipDriftB {
+  0%, 100% { transform: translateX(0)     scale(1)    rotate(var(--clip-rot, 0deg)); }
+  50%      { transform: translateX(18px)  scale(1.02) rotate(calc(var(--clip-rot, 0deg) - 2deg)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-fade,
@@ -1154,6 +1165,7 @@
 
   .typing-cursor,
   .shape,
+  .clip-phone,
   .hero-overlay,
   .quote-line .highlight,
   .feedback-suggestion {

@@ -348,7 +348,7 @@
   left: -5%;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 66, 107, 0.08) 0%, transparent 70%);
   border-radius: 50%;
   animation: floatBubble 15s ease-in-out infinite;
 }
@@ -360,7 +360,7 @@
   right: -5%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(118, 75, 162, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 54, 85, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   animation: floatBubble 20s ease-in-out infinite reverse;
 }
@@ -369,6 +369,50 @@
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(30px, -30px) scale(1.1); }
 }
+
+/* Floating viral-clip backdrop — faint phone silhouettes drifting behind the cards */
+.clip-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.clip-phone {
+  position: absolute;
+  width: 120px;
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(180deg, var(--accent-dark) 0%, var(--accent-blue) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 66, 107, 0.18);
+  will-change: transform;
+}
+
+.clip-phone::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 14px solid rgba(255, 255, 255, 0.85);
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  transform: translate(-40%, -50%);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.clip-phone--a { top:  4%;  left:  3%;  width: 110px; opacity: 0.16; --clip-rot: -9deg; animation: clipDriftA 22s ease-in-out infinite; animation-delay: -3s; }
+.clip-phone--b { top: 12%;  right: 6%;  width: 140px; opacity: 0.14; --clip-rot:  7deg; animation: clipDriftB 26s ease-in-out infinite; animation-delay: -11s; }
+.clip-phone--c { top: 30%;  left: 22%; width: 90px;  opacity: 0.10; --clip-rot:  4deg; animation: clipDriftA 30s ease-in-out infinite; animation-delay: -7s; }
+.clip-phone--d { top: 38%;  right: 18%; width: 100px; opacity: 0.12; --clip-rot: -6deg; animation: clipDriftB 18s ease-in-out infinite; animation-delay: -2s; }
+.clip-phone--e { bottom: 8%; left: 8%;  width: 130px; opacity: 0.15; --clip-rot:  8deg; animation: clipDriftA 27s ease-in-out infinite; animation-delay: -14s; }
+.clip-phone--f { bottom: 14%; right: 4%; width: 120px; opacity: 0.13; --clip-rot: -5deg; animation: clipDriftB 34s ease-in-out infinite; animation-delay: -6s; }
+.clip-phone--g { top: 58%;  left: 42%; width: 80px;  opacity: 0.08; --clip-rot:  3deg; animation: clipDriftA 24s ease-in-out infinite; animation-delay: -18s; }
+.clip-phone--h { top:  2%;  left: 52%; width: 95px;  opacity: 0.11; --clip-rot: -3deg; animation: clipDriftB 20s ease-in-out infinite; animation-delay: -9s; }
 
 .about-grid {
   display: grid;
@@ -398,7 +442,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  background: linear-gradient(90deg, #00426B, #003655, #00426B);
   background-size: 200% 100%;
   transform: scaleX(0);
   transform-origin: left;
@@ -417,8 +461,8 @@
 
 .about-card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
-  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 66, 107, 0.15);
+  border-color: rgba(0, 66, 107, 0.3);
 }
 
 /* Card Number */
@@ -428,13 +472,13 @@
   right: 20px;
   font-size: 3rem;
   font-weight: 800;
-  color: rgba(102, 126, 234, 0.08);
+  color: rgba(0, 66, 107, 0.08);
   line-height: 1;
   transition: all 0.4s ease;
 }
 
 .about-card:hover .card-number {
-  color: rgba(102, 126, 234, 0.15);
+  color: rgba(0, 66, 107, 0.15);
   transform: scale(1.1);
 }
 
@@ -452,7 +496,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #00426B 0%, #003655 100%);
   border-radius: 20px;
   font-size: var(--text-3xl);
   line-height: 1;
@@ -468,7 +512,7 @@
   transform: translate(-50%, -50%);
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
   border-radius: 20px;
   filter: blur(20px);
   opacity: 0;
@@ -478,7 +522,7 @@
 
 .about-card:hover .card-icon {
   transform: translateY(-5px) rotate(5deg);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 66, 107, 0.4);
 }
 
 .about-card:hover .icon-glow {
@@ -519,17 +563,17 @@
 .highlight-text {
   display: inline-block;
   padding: 6px 14px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  background: linear-gradient(135deg, rgba(0, 66, 107, 0.1), rgba(0, 54, 85, 0.1));
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #667eea;
+  color: #00426B;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
 }
 
 .about-card:hover .highlight-text {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
   color: white;
   transform: scale(1.05);
 }
@@ -545,16 +589,16 @@
 
 .metric {
   padding: 5px 12px;
-  background: rgba(102, 126, 234, 0.08);
+  background: rgba(0, 66, 107, 0.08);
   border-radius: 15px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #667eea;
+  color: #00426B;
   transition: all 0.3s ease;
 }
 
 .about-card:hover .metric {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
   color: white;
   transform: translateY(-2px);
 }
@@ -1132,9 +1176,9 @@
 }
 
 .social-link:hover {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 66, 107, 0.4);
 }
 
 .social-link svg {
@@ -1159,7 +1203,7 @@
    ======================================== */
 .features-section {
   padding: clamp(var(--space-3xl), 8vw, var(--space-4xl)) 0;
-  background: linear-gradient(180deg, #FDFBF7 0%, #F3EFE8 100%);
+  background: linear-gradient(180deg, #F6F7FB 0%, #ECECFB 100%);
   overflow: hidden;
 }
 
@@ -1235,11 +1279,11 @@
   color: #fff;
 }
 
-.reel-hook    { background: linear-gradient(135deg, #FF6B9D 0%, #C77DFF 100%); }
-.reel-score   { background: linear-gradient(135deg, #FF8C42 0%, #FF3C5F 100%); }
-.reel-remix   { background: linear-gradient(135deg, #4ECDC4 0%, #556FB5 100%); }
-.reel-spy     { background: linear-gradient(135deg, #1F4037 0%, #99F2C8 100%); }
-.reel-library { background: linear-gradient(135deg, #B47CFF 0%, #FF6B9D 100%); }
+.reel-hook    { background: linear-gradient(135deg, #00426B 0%, #003655 100%); }
+.reel-score   { background: linear-gradient(135deg, #00426B 0%, #1B5C8A 100%); }
+.reel-remix   { background: linear-gradient(135deg, #003655 0%, #00426B 100%); }
+.reel-spy     { background: linear-gradient(135deg, #00426B 0%, #00426B 100%); }
+.reel-library { background: linear-gradient(135deg, #00426B 0%, #00426B 100%); }
 
 .video-reel .reel-caption {
   position: absolute;
@@ -1293,7 +1337,7 @@
   display: block;
   font-size: 26px;
   font-weight: 800;
-  color: #5CFF8A;
+  color: #00426B;
   line-height: 1;
 }
 
@@ -1328,7 +1372,7 @@
   font-weight: 600;
 }
 
-.score-row > span:last-child { text-align: right; color: #5CFF8A; }
+.score-row > span:last-child { text-align: right; color: #00426B; }
 
 .score-bar {
   height: 4px;
@@ -1339,7 +1383,7 @@
 
 .score-fill {
   height: 100%;
-  background: linear-gradient(90deg, #5CFF8A, #4ECDC4);
+  background: linear-gradient(90deg, #00426B, #00426B);
   border-radius: 2px;
 }
 
@@ -1395,7 +1439,7 @@
 }
 
 .spy-label { opacity: 0.72; }
-.spy-value { font-weight: 700; color: #5CFF8A; }
+.spy-value { font-weight: 700; color: #00426B; }
 
 /* Template grid */
 .template-grid {
@@ -1415,12 +1459,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-.tile-1 { background: linear-gradient(135deg, #FF9A9E, #FAD0C4); }
-.tile-2 { background: linear-gradient(135deg, #A18CD1, #FBC2EB); }
-.tile-3 { background: linear-gradient(135deg, #FFECD2, #FCB69F); }
-.tile-4 { background: linear-gradient(135deg, #84FAB0, #8FD3F4); }
-.tile-5 { background: linear-gradient(135deg, #F093FB, #F5576C); }
-.tile-6 { background: linear-gradient(135deg, #5EE7DF, #B490CA); }
+.tile-1 { background: linear-gradient(135deg, #00426B, #1B5C8A); }
+.tile-2 { background: linear-gradient(135deg, #003655, #00426B); }
+.tile-3 { background: linear-gradient(135deg, #00426B, #00426B); }
+.tile-4 { background: linear-gradient(135deg, #00426B, #00426B); }
+.tile-5 { background: linear-gradient(135deg, #1B5C8A, #003655); }
+.tile-6 { background: linear-gradient(135deg, #00426B, #1B5C8A); }
 
 /* Card caption below phone */
 .feature-title {
@@ -1468,7 +1512,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  background: linear-gradient(145deg, #1e1e2e, #2d2d44);
+  background: linear-gradient(145deg, #14141F, #1E1E2C);
   border: 2px dashed rgba(255, 255, 255, 0.18);
   border-radius: 12px;
   color: #b0b0b0;
@@ -1481,7 +1525,7 @@
   justify-content: center;
   font-size: 22px;
   color: #fff;
-  background: rgba(102, 126, 234, 0.85);
+  background: rgba(0, 66, 107, 0.85);
   border-radius: 50%;
   padding-left: 4px;
 }
@@ -1566,7 +1610,7 @@
 }
 .sample-chip.active {
   color: #fff;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
   border-color: transparent;
 }
 
@@ -1576,7 +1620,7 @@
 .pitch-preview,
 .community-preview,
 .calendar-preview {
-  background: linear-gradient(145deg, #1e1e2e, #2d2d44);
+  background: linear-gradient(145deg, #14141F, #1E1E2C);
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   padding: var(--space-xl);
@@ -1638,7 +1682,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #27ca40;
+  background: #00426B;
   display: inline-block;
 }
 .chat-msg {
@@ -1657,7 +1701,7 @@
   font-weight: 700;
   font-size: var(--text-sm);
   color: #fff;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
 }
 .chat-name {
   display: block;
@@ -1698,7 +1742,7 @@
   background: rgba(255, 255, 255, 0.05);
 }
 .cal-cell.has-post {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #00426B, #003655);
 }
 
 .to-analyzer {

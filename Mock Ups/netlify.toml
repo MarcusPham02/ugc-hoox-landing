@@ -3,6 +3,7 @@
 [build]
   # Directory to publish (since this is the Mock Ups folder)
   publish = "."
+  command = "sed -i \"s|YOUR_SUPABASE_URL|$SUPABASE_URL|g\" index.html && sed -i \"s|YOUR_SUPABASE_ANON_KEY|$SUPABASE_ANON_KEY|g\" index.html"
 
 # Form handling settings
 [build.processing]

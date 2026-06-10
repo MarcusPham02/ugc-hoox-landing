@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UGC Hoox — Color & Layout Style Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1a1d24;
+    background: #eef0f3;
+    line-height: 1.5;
+    padding: 32px 20px 80px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 6px; }
+  h2 { font-size: 20px; margin: 40px 0 14px; }
+  .note {
+    font-size: 13px; color: #5b6472; background: #fff;
+    border-left: 3px solid #c9ced6; padding: 10px 14px;
+    border-radius: 0 6px 6px 0; margin-bottom: 8px;
+  }
+
+  /* ---------- Palette panels ---------- */
+  .palettes { display: flex; gap: 20px; flex-wrap: wrap; }
+  .palette {
+    flex: 1 1 480px; background: #fff; border-radius: 12px;
+    padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  }
+  .palette h3 { font-size: 17px; margin-bottom: 2px; }
+  .palette .tag { font-size: 12px; color: #7a8699; margin-bottom: 16px; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 10px; }
+  .sw { border: 1px solid #e6e9ee; border-radius: 8px; overflow: hidden; }
+  .sw .chip { height: 54px; }
+  .sw .meta { padding: 7px 9px; font-size: 11px; }
+  .sw .meta b { display: block; font-size: 12px; }
+  .sw .meta code { color: #7a8699; font-size: 10px; }
+  .sw .meta .tok { color: #0a8e94; font-size: 10px; display:block; margin-top:2px; }
+
+  table.map { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 14px; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.06); }
+  table.map th, table.map td { text-align: left; padding: 9px 12px; border-bottom: 1px solid #eef0f3; }
+  table.map th { background: #f6f7fb; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color:#5b6472; }
+  table.map code { color: #003655; }
+
+  /* ---------- Theme toggle ---------- */
+  .toggle-bar {
+    position: sticky; top: 0; z-index: 5; background: #eef0f3;
+    padding: 14px 0; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  }
+  .toggle-bar span { font-size: 13px; color: #5b6472; }
+  .tbtn {
+    border: 1.5px solid #c9ced6; background: #fff; color: #1a1d24;
+    padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 13px; cursor: pointer;
+  }
+  .tbtn.active { background: #1a1d24; color: #fff; border-color: #1a1d24; }
+
+  /* ---------- Skeleton themes ---------- */
+  .skeleton {
+    --bg:#F7F9FA; --surface:#FFFFFF; --text:#14181F; --muted:#4A5566; --faint:#7A8699;
+    --primary:#0EB4BB; --primary-strong:#0A8E94; --accent:#F4C430; --border:#E5E9EE;
+    --dark:#121620; --grad-btn:linear-gradient(135deg,#0EB4BB,#0A8E94);
+    --grad-hero:linear-gradient(135deg,#FFFFFF 0%,#F2F7F8 60%,#E6F2F3 100%);
+    background: var(--bg); border-radius: 14px; padding: 18px; margin-top: 10px;
+  }
+  .skeleton[data-theme="b"] {
+    --bg:#F6F7FB; --surface:#FFFFFF; --text:#0F1222; --muted:#4C5365; --faint:#7C8398;
+    --primary:#00426B; --primary-strong:#003655; --accent:#00426B; --border:#E6E8F1;
+    --dark:#14141F; --grad-btn:linear-gradient(135deg,#00426B,#003655);
+    --grad-hero:linear-gradient(135deg,#FFFFFF 0%,#F3F3FD 60%,#ECECFB 100%);
+  }
+
+  .blk {
+    position: relative; background: var(--surface); border: 1.5px dashed var(--border);
+    border-radius: 12px; padding: 22px; margin-bottom: 14px;
+  }
+  .blk .lbl {
+    position: absolute; top: -10px; left: 14px; background: var(--text); color: var(--surface);
+    font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px;
+  }
+  .blk .new {
+    position: absolute; top: -10px; right: 14px; background: var(--accent); color: #1a1d24;
+    font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing:.04em;
+  }
+  .ph { background: var(--border); border-radius: 6px; }
+  .row { display: flex; gap: 10px; align-items: center; }
+  .cols { display: flex; gap: 12px; flex-wrap: wrap; }
+  .pill {
+    background: var(--grad-btn); color: #fff; font-size: 11px; font-weight: 700;
+    padding: 7px 16px; border-radius: 999px; display: inline-block;
+  }
+  .card { flex: 1 1 150px; border: 1px solid var(--border); border-radius: 10px; padding: 14px; background: var(--surface); }
+  .bar { height: 10px; }
+  .dot { width: 34px; height: 34px; border-radius: 50%; background: var(--primary); flex:none; }
+  .hero-blk { background: var(--grad-hero); }
+  small.cap { display:block; font-size:11px; color:var(--faint); margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>UGC Hoox — Color &amp; Layout Style Guide</h1>
+  <p class="note"><b>Directional only.</b> The Pinterest pin's actual pixels can't be read programmatically — these two palettes are clean, slick interpretations of the cool/modern brief, not literal extractions.</p>
+  <p class="note"><b>Tokens-only.</b> Each color maps to an existing <code>main.css</code> variable name, so migrating the chosen option later is a value swap — no CSS refactor. Nothing here touches the live <code>index.html</code> or <code>main.css</code>.</p>
+
+  <h2>1 · Palette options</h2>
+  <div class="palettes">
+
+    <div class="palette">
+      <h3>Option A — Aqua Slate</h3>
+      <p class="tag">Teal + gold on light · the pin direction · tech-forward, calm</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#F7F9FA"></div><div class="meta"><b>Page</b><code>#F7F9FA</code><span class="tok">--soft-gray</span></div></div>
+        <div class="sw"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid #e6e9ee"></div><div class="meta"><b>Surface</b><code>#FFFFFF</code><span class="tok">--primary-white</span></div></div>
+        <div class="sw"><div class="chip" style="background:#14181F"></div><div class="meta"><b>Text</b><code>#14181F</code><span class="tok">--dark-text</span></div></div>
+        <div class="sw"><div class="chip" style="background:#4A5566"></div><div class="meta"><b>Muted</b><code>#4A5566</code><span class="tok">--medium-text</span></div></div>
+        <div class="sw"><div class="chip" style="background:#7A8699"></div><div class="meta"><b>Faint</b><code>#7A8699</code><span class="tok">--light-text</span></div></div>
+        <div class="sw"><div class="chip" style="background:#0EB4BB"></div><div class="meta"><b>Primary</b><code>#0EB4BB</code><span class="tok">--accent-dark</span></div></div>
+        <div class="sw"><div class="chip" style="background:#0A8E94"></div><div class="meta"><b>Primary strong</b><code>#0A8E94</code><span class="tok">--accent-blue</span></div></div>
+        <div class="sw"><div class="chip" style="background:#F4C430"></div><div class="meta"><b>Gold accent</b><code>#F4C430</code><span class="tok">--accent-green*</span></div></div>
+        <div class="sw"><div class="chip" style="background:#E5E9EE"></div><div class="meta"><b>Border</b><code>#E5E9EE</code><span class="tok">--accent-beige</span></div></div>
+        <div class="sw"><div class="chip" style="background:#121620"></div><div class="meta"><b>Dark surface</b><code>#121620</code><span class="tok">demo window</span></div></div>
+        <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#0EB4BB,#0A8E94)"></div><div class="meta"><b>Button grad</b><code>0EB4BB→0A8E94</code><span class="tok">--gradient-button</span></div></div>
+        <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#FFFFFF,#F2F7F8 60%,#E6F2F3)"></div><div class="meta"><b>Hero grad</b><code>white→aqua</code><span class="tok">--gradient-hero</span></div></div>
+      </div>
+    </div>
+
+    <div class="palette">
+      <h3>Option B — Indigo Clean</h3>
+      <p class="tag">Indigo + mint on light · premium SaaS · slick, confident</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#F6F7FB"></div><div class="meta"><b>Page</b><code>#F6F7FB</code><span class="tok">--soft-gray</span></div></div>
+        <div class="sw"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid #e6e9ee"></div><div class="meta"><b>Surface</b><code>#FFFFFF</code><span class="tok">--primary-white</span></div></div>
+        <div class="sw"><div class="chip" style="background:#0F1222"></div><div class="meta"><b>Text</b><code>#0F1222</code><span class="tok">--dark-text</span></div></div>
+        <div class="sw"><div class="chip" style="background:#4C5365"></div><div class="meta"><b>Muted</b><code>#4C5365</code><span class="tok">--medium-text</span></div></div>
+        <div class="sw"><div class="chip" style="background:#7C8398"></div><div class="meta"><b>Faint</b><code>#7C8398</code><span class="tok">--light-text</span></div></div>
+        <div class="sw"><div class="chip" style="background:#00426B"></div><div class="meta"><b>Primary</b><code>#00426B</code><span class="tok">--accent-dark</span></div></div>
+        <div class="sw"><div class="chip" style="background:#003655"></div><div class="meta"><b>Primary strong</b><code>#003655</code><span class="tok">--accent-blue</span></div></div>
+        <div class="sw"><div class="chip" style="background:#00426B"></div><div class="meta"><b>Mint accent</b><code>#00426B</code><span class="tok">--accent-green</span></div></div>
+        <div class="sw"><div class="chip" style="background:#E6E8F1"></div><div class="meta"><b>Border</b><code>#E6E8F1</code><span class="tok">--accent-beige</span></div></div>
+        <div class="sw"><div class="chip" style="background:#14141F"></div><div class="meta"><b>Dark surface</b><code>#14141F</code><span class="tok">demo window</span></div></div>
+        <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#00426B,#003655)"></div><div class="meta"><b>Button grad</b><code>5A57F2→4542C9</code><span class="tok">--gradient-button</span></div></div>
+        <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#FFFFFF,#F3F3FD 60%,#ECECFB)"></div><div class="meta"><b>Hero grad</b><code>white→indigo</code><span class="tok">--gradient-hero</span></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <table class="map">
+    <tr><th>main.css token</th><th>Role</th><th>Option A</th><th>Option B</th></tr>
+    <tr><td><code>--soft-gray</code></td><td>Page background</td><td>#F7F9FA</td><td>#F6F7FB</td></tr>
+    <tr><td><code>--primary-white</code></td><td>Card / surface</td><td>#FFFFFF</td><td>#FFFFFF</td></tr>
+    <tr><td><code>--dark-text</code></td><td>Headings / body</td><td>#14181F</td><td>#0F1222</td></tr>
+    <tr><td><code>--medium-text</code></td><td>Secondary text</td><td>#4A5566</td><td>#4C5365</td></tr>
+    <tr><td><code>--light-text</code></td><td>Captions</td><td>#7A8699</td><td>#7C8398</td></tr>
+    <tr><td><code>--accent-dark</code></td><td>Primary brand / CTA</td><td>#0EB4BB</td><td>#00426B</td></tr>
+    <tr><td><code>--accent-blue</code></td><td>Primary strong (text-safe)</td><td>#0A8E94</td><td>#003655</td></tr>
+    <tr><td><code>--accent-green</code></td><td>Secondary accent</td><td>#F4C430 (gold)</td><td>#00426B (mint)</td></tr>
+    <tr><td><code>--accent-beige</code></td><td>Borders / dividers</td><td>#E5E9EE</td><td>#E6E8F1</td></tr>
+    <tr><td><code>--gradient-button</code></td><td>Button / pill fill</td><td>#0EB4BB→#0A8E94</td><td>#00426B→#003655</td></tr>
+    <tr><td><code>--gradient-hero</code></td><td>Hero background</td><td>white→aqua</td><td>white→indigo</td></tr>
+  </table>
+  <p class="note" style="margin-top:10px"><code>--accent-green*</code> in Option A holds the gold; keep <code>--accent-red</code> as a shared semantic error color in both. Use <b>primary-strong</b> for buttons with white text (contrast-safe); reserve the secondary accent for small highlights only.</p>
+
+  <h2>2 · Yorby-flow layout skeleton</h2>
+  <div class="toggle-bar">
+    <span>Preview palette on skeleton:</span>
+    <button class="tbtn active" data-set="a">Option A — Aqua Slate</button>
+    <button class="tbtn" data-set="b">Option B — Indigo Clean</button>
+  </div>
+
+  <div class="skeleton" id="sk" data-theme="a">
+
+    <div class="blk">
+      <span class="lbl">1 · Header / Nav</span>
+      <div class="row" style="justify-content:space-between">
+        <div class="row"><span class="dot"></span><div class="ph" style="width:90px;height:14px"></div></div>
+        <div class="row"><div class="ph" style="width:50px;height:10px"></div><div class="ph" style="width:50px;height:10px"></div><div class="ph" style="width:50px;height:10px"></div><span class="pill">CTA</span></div>
+      </div>
+    </div>
+
+    <div class="blk hero-blk" style="text-align:center;padding:48px 22px">
+      <span class="lbl">2 · Hero</span>
+      <div class="ph" style="width:60%;height:30px;margin:0 auto 12px"></div>
+      <div class="ph" style="width:42%;height:14px;margin:0 auto 18px"></div>
+      <span class="pill">Get Started Today</span>
+      <small class="cap">Centered, gradient background</small>
+    </div>
+
+    <div class="blk">
+      <span class="lbl">3 · Social-proof strip</span><span class="new">New</span>
+      <div class="row" style="justify-content:space-between;flex-wrap:wrap">
+        <div class="ph" style="width:70px;height:22px"></div><div class="ph" style="width:70px;height:22px"></div><div class="ph" style="width:70px;height:22px"></div><div class="ph" style="width:70px;height:22px"></div><div class="ph" style="width:70px;height:22px"></div>
+      </div>
+      <small class="cap">Partner logos + stat badges (47.2K · 1.2M · …)</small>
+    </div>
+
+    <div class="blk">
+      <span class="lbl">4 · Testimonials</span><span class="new">New</span>
+      <div class="cols">
+        <div class="card"><div class="ph" style="width:100%;height:10px;margin-bottom:6px"></div><div class="ph" style="width:80%;height:10px;margin-bottom:12px"></div><div class="row"><span class="dot" style="width:24px;height:24px"></span><div class="ph" style="width:70px;height:9px"></div></div></div>
+        <div class="card"><div class="ph" style="width:100%;height:10px;margin-bottom:6px"></div><div class="ph" style="width:80%;height:10px;margin-bottom:12px"></div><div class="row"><span class="dot" style="width:24px;height:24px"></span><div class="ph" style="width:70px;height:9px"></div></div></div>
+        <div class="card"><div class="ph" style="width:100%;height:10px;margin-bottom:6px"></div><div class="ph" style="width:80%;height:10px;margin-bottom:12px"></div><div class="row"><span class="dot" style="width:24px;height:24px"></span><div class="ph" style="width:70px;height:9px"></div></div></div>
+      </div>
+      <small class="cap">Rotating quote cards</small>
+    </div>
+
+    <div class="blk">
+      <span class="lbl">5 · Features (3-card grid)</span>
+      <div class="cols">
+        <div class="card"><div class="dot" style="margin-bottom:10px"></div><div class="ph" style="width:60%;height:12px;margin-bottom:6px"></div><div class="ph" style="width:100%;height:9px"></div></div>
+        <div class="card"><div class="dot" style="margin-bottom:10px"></div><div class="ph" style="width:60%;height:12px;margin-bottom:6px"></div><div class="ph" style="width:100%;height:9px"></div></div>
+        <div class="card"><div class="dot" style="margin-bottom:10px"></div><div class="ph" style="width:60%;height:12px;margin-bottom:6px"></div><div class="ph" style="width:100%;height:9px"></div></div>
+      </div>
+      <small class="cap">"How it works" — pillar tools</small>
+    </div>
+
+    <div class="blk">
+      <span class="lbl">6 · Founder / credibility</span><span class="new">New</span>
+      <div class="cols">
+        <div class="card" style="flex:1 1 220px"><div class="row"><span class="dot" style="width:48px;height:48px"></span><div><div class="ph" style="width:90px;height:11px;margin-bottom:6px"></div><div class="ph" style="width:120px;height:9px"></div></div></div></div>
+        <div class="card" style="flex:1 1 220px"><div class="row"><span class="dot" style="width:48px;height:48px"></span><div><div class="ph" style="width:90px;height:11px;margin-bottom:6px"></div><div class="ph" style="width:120px;height:9px"></div></div></div></div>
+      </div>
+      <small class="cap">"Built by the team behind millions of views" — two-column</small>
+    </div>
+
+    <div class="blk">
+      <span class="lbl">7 · Wall of Love</span><span class="new">New</span>
+      <div class="cols">
+        <div class="card" style="flex:1 1 30%"><div class="ph" style="width:100%;height:9px;margin-bottom:5px"></div><div class="ph" style="width:70%;height:9px"></div></div>
+        <div class="card" style="flex:1 1 30%"><div class="ph" style="width:100%;height:9px;margin-bottom:5px"></div><div class="ph" style="width:70%;height:9px"></div></div>
+        <div class="card" style="flex:1 1 30%"><div class="ph" style="width:100%;height:9px;margin-bottom:5px"></div><div class="ph" style="width:70%;height:9px"></div></div>
+        <div class="card" style="flex:1 1 30%"><div class="ph" style="width:100%;height:9px;margin-bottom:5px"></div><div class="ph" style="width:70%;height:9px"></div></div>
+      </div>
+      <small class="cap">Dense user-quote wall</small>
+    </div>
+
+    <div class="blk">
+      <span class="lbl">8 · Pricing (3-tier)</span><span class="new">3 vs current 2</span>
+      <div class="row" style="justify-content:center;margin-bottom:14px"><div class="ph" style="width:160px;height:24px;border-radius:999px"></div></div>
+      <div class="cols">
+        <div class="card"><div class="ph" style="width:50%;height:12px;margin-bottom:8px"></div><div class="ph" style="width:40%;height:22px;margin-bottom:12px"></div><div class="ph" style="width:100%;height:8px;margin-bottom:5px"></div><div class="ph" style="width:100%;height:8px;margin-bottom:14px"></div><span class="pill">Choose</span></div>
+        <div class="card" style="border-color:var(--primary);border-width:2px"><div class="ph" style="width:50%;height:12px;margin-bottom:8px"></div><div class="ph" style="width:40%;height:22px;margin-bottom:12px"></div><div class="ph" style="width:100%;height:8px;margin-bottom:5px"></div><div class="ph" style="width:100%;height:8px;margin-bottom:14px"></div><span class="pill">Best value</span></div>
+        <div class="card"><div class="ph" style="width:50%;height:12px;margin-bottom:8px"></div><div class="ph" style="width:40%;height:22px;margin-bottom:12px"></div><div class="ph" style="width:100%;height:8px;margin-bottom:5px"></div><div class="ph" style="width:100%;height:8px;margin-bottom:14px"></div><span class="pill">Contact</span></div>
+      </div>
+      <small class="cap">Solo · Team (highlighted) · Enterprise + monthly/yearly toggle</small>
+    </div>
+
+    <div class="blk">
+      <span class="lbl">9 · FAQ (accordion)</span>
+      <div class="ph" style="width:100%;height:38px;margin-bottom:8px;border-radius:8px"></div>
+      <div class="ph" style="width:100%;height:38px;margin-bottom:8px;border-radius:8px"></div>
+      <div class="ph" style="width:100%;height:38px;border-radius:8px"></div>
+    </div>
+
+    <div class="blk" style="margin-bottom:0">
+      <span class="lbl">10 · Footer</span>
+      <div class="cols">
+        <div style="flex:2 1 200px"><div class="row" style="margin-bottom:10px"><span class="dot" style="width:24px;height:24px"></span><div class="ph" style="width:80px;height:12px"></div></div><div class="ph" style="width:140px;height:8px"></div></div>
+        <div style="flex:1 1 120px"><div class="ph" style="width:70%;height:9px;margin-bottom:6px"></div><div class="ph" style="width:60%;height:9px;margin-bottom:6px"></div><div class="ph" style="width:65%;height:9px"></div></div>
+        <div style="flex:1 1 120px"><div class="ph" style="width:70%;height:9px;margin-bottom:6px"></div><div class="ph" style="width:60%;height:9px;margin-bottom:6px"></div><div class="ph" style="width:65%;height:9px"></div></div>
+        <div class="row" style="flex:1 1 120px;align-items:flex-start"><span class="dot" style="width:22px;height:22px"></span><span class="dot" style="width:22px;height:22px"></span><span class="dot" style="width:22px;height:22px"></span></div>
+      </div>
+      <small class="cap">Multi-column + social icons + © line</small>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var sk = document.getElementById('sk');
+    document.querySelectorAll('.tbtn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        document.querySelectorAll('.tbtn').forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active');
+        sk.setAttribute('data-theme', b.getAttribute('data-set'));
+      });
+    });
+  })();
+</script>
+</body>
+</html>

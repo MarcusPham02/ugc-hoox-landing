@@ -5,25 +5,25 @@
 
 /* ========== CSS CUSTOM PROPERTIES ========== */
 :root {
-  /* Colors */
+  /* Colors — "Indigo Clean" palette (Option B) */
   --primary-white: #FFFFFF;
-  --soft-gray: #F5F5F5;
-  --soft-beige: #F8F6F3;
-  --warm-beige: #E8E3DC;
-  --medium-gray: #E0E0E0;
-  --dark-text: #333333;
-  --medium-text: #555555;
-  --light-text: #666666;
-  --accent-beige: #D4C5B9;
-  --accent-dark: #8B7355;
-  --accent-blue: #4A90E2;
-  --accent-green: #5CB85C;
+  --soft-gray: #F6F7FB;
+  --soft-beige: #F3F3FD;
+  --warm-beige: #ECECFB;
+  --medium-gray: #DEE1EC;
+  --dark-text: #0F1222;
+  --medium-text: #4C5365;
+  --light-text: #7C8398;
+  --accent-beige: #E6E8F1;
+  --accent-dark: #00426B;
+  --accent-blue: #003655;
+  --accent-green: #00426B;
   --accent-red: #D9534F;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #FDFBF7 0%, #F8F6F3 50%, #E8E3DC 100%);
-  --gradient-button: linear-gradient(135deg, #333333 0%, #4a4a4a 100%);
-  --gradient-accent: linear-gradient(135deg, #D4C5B9 0%, #8B7355 100%);
+  --gradient-hero: linear-gradient(135deg, #F1F5F9 0%, #F3F3FD 60%, #ECECFB 100%);
+  --gradient-button: linear-gradient(135deg, #00426B 0%, #00426B 100%);
+  --gradient-accent: linear-gradient(135deg, #00426B 0%, #00426B 100%);
 
   /* Shadows */
   --shadow-light: rgba(0, 0, 0, 0.08);
@@ -68,8 +68,8 @@
   --line-height-relaxed: 1.75;
 
   /* Animation Timing */
-  --transition-fast: 0.2s ease;
-  --transition-base: 0.3s ease;
+  --transition-fast: 0.1s ease;
+  --transition-base: 0.15s ease;
   --transition-slow: 0.6s ease;
   --transition-slower: 0.8s ease;
 
@@ -106,7 +106,7 @@ body {
   font-weight: var(--font-normal);
   line-height: var(--line-height-normal);
   color: var(--dark-text);
-  background-color: var(--primary-white);
+  background-color: #F1F5F9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;

@@ -101,6 +101,21 @@
     padding: var(--space-xl);
   }
 
+  /* Calm the viral-clip backdrop on small screens — single column would otherwise look noisy */
+  .clip-phone--c,
+  .clip-phone--d,
+  .clip-phone--f,
+  .clip-phone--g,
+  .clip-phone--h {
+    display: none;
+  }
+
+  .clip-phone--a,
+  .clip-phone--b,
+  .clip-phone--e {
+    width: 80px;
+  }
+
   /* Demo Section */
   .demo-container {
     gap: var(--space-2xl);
