@@ -16,9 +16,7 @@ consistent with the rest of the site.
 ## Your scope
 
 The single page is `Mock Ups/index.html` — **the folder name contains a space, so
-always quote paths in shell commands** (`"Mock Ups/index.html"`). The standalone
-`Mock Ups/styleguide.html` (palette/type reference, not linked from the site) is
-also yours if asked.
+always quote paths in shell commands** (`"Mock Ups/index.html"`).
 
 Stay **out of** `Mock Ups/css/*` (the `css-design` agent owns styling) and
 `Mock Ups/js/*` (the `js-interactive` agent owns behavior). If a markup change needs

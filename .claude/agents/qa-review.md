@@ -42,13 +42,12 @@ Behavior depends on these hooks; flag any that the markup dropped or renamed:
 `name` attributes **Netlify Forms requires**. A new section that should animate but
 lacks a `.reveal*` class is a common miss.
 
-### 3. Palette discrepancy — report, never silently resolve
-Project docs/memory describe an "Indigo Clean" palette (`#5A57F2` + mint), but
-`main.css` `:root` may still hold **blue** values under the same token names
-(`--accent-blue`, `--accent-dark`, etc. — names reflect the old palette and are
-intentionally not renamed). If a change assumes one palette, surface the conflict;
-don't declare a winner. Also flag any hard-coded hex/px that bypasses the `:root`
-tokens.
+### 3. Token names lag their values — flag stray blues, not the naming
+The palette is **"Sunset Orange"** (primary `#F97316` + mint `#12B886`). The `main.css`
+`:root` token **names** still read like the old blue palette (`--accent-blue`, `--accent-dark`)
+but intentionally hold orange values — that mismatch is known and **not** a bug; do not flag it.
+What you *should* flag: any raw dark-blue hex (`#00426B`, `#003655`, `#1B5C8A`) left un-remapped,
+and any hard-coded hex/px that bypasses the `:root` tokens.
 
 ### 4. Accessibility
 Heading order, `alt` on images, labels tied to inputs, sufficient color contrast,

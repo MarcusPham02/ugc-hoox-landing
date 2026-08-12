@@ -5,25 +5,25 @@
 
 /* ========== CSS CUSTOM PROPERTIES ========== */
 :root {
-  /* Colors — "Indigo Clean" palette (Option B) */
+  /* Colors — "Sunset Orange" palette (primary #F97316, with a mint accent) */
   --primary-white: #FFFFFF;
-  --soft-gray: #F6F7FB;
-  --soft-beige: #F3F3FD;
-  --warm-beige: #ECECFB;
-  --medium-gray: #DEE1EC;
-  --dark-text: #0F1222;
-  --medium-text: #4C5365;
-  --light-text: #7C8398;
-  --accent-beige: #E6E8F1;
-  --accent-dark: #00426B;
-  --accent-blue: #003655;
-  --accent-green: #00426B;
+  --soft-gray: #FFF9F4;
+  --soft-beige: #FFF7F0;
+  --warm-beige: #FFEFE2;
+  --medium-gray: #EADFD6;
+  --dark-text: #1A1410;
+  --medium-text: #6B5D52;
+  --light-text: #9A8B7E;
+  --accent-beige: #FCE9DC;
+  --accent-dark: #EA580C;
+  --accent-blue: #F97316;
+  --accent-green: #12B886;
   --accent-red: #D9534F;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #F1F5F9 0%, #F3F3FD 60%, #ECECFB 100%);
-  --gradient-button: linear-gradient(135deg, #00426B 0%, #00426B 100%);
-  --gradient-accent: linear-gradient(135deg, #00426B 0%, #00426B 100%);
+  --gradient-hero: linear-gradient(135deg, #FFFFFF 0%, #FFF7F0 60%, #FFEFE2 100%);
+  --gradient-button: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+  --gradient-accent: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
 
   /* Shadows */
   --shadow-light: rgba(0, 0, 0, 0.08);
@@ -106,7 +106,7 @@ body {
   font-weight: var(--font-normal);
   line-height: var(--line-height-normal);
   color: var(--dark-text);
-  background-color: #F1F5F9;
+  background-color: #FFFFFF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -225,7 +225,7 @@ section {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+  background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
@@ -294,7 +294,7 @@ section {
 .form-textarea:focus {
   outline: none;
   border-color: var(--accent-blue);
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
 }
 
 .form-input::placeholder,

@@ -91,31 +91,6 @@
     font-size: var(--text-base);
   }
 
-  /* About Section */
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .about-card {
-    padding: var(--space-xl);
-  }
-
-  /* Calm the viral-clip backdrop on small screens — single column would otherwise look noisy */
-  .clip-phone--c,
-  .clip-phone--d,
-  .clip-phone--f,
-  .clip-phone--g,
-  .clip-phone--h {
-    display: none;
-  }
-
-  .clip-phone--a,
-  .clip-phone--b,
-  .clip-phone--e {
-    width: 80px;
-  }
-
   /* Demo Section */
   .demo-container {
     gap: var(--space-2xl);
@@ -266,12 +241,6 @@
     min-height: 70vh;
   }
 
-  /* About Section */
-  .about-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-xl);
-  }
-
   /* Demo Section */
   .demo-container {
     grid-template-columns: 1fr;
@@ -306,11 +275,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-3xl);
-  }
-
-  /* About Section */
-  .about-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   /* Demo Section */
@@ -375,7 +339,6 @@
     padding: clamp(var(--space-4xl), 10vw, 8rem) 0;
   }
 
-  .about-grid,
   .pricing-grid {
     gap: var(--space-3xl);
   }
@@ -428,7 +391,6 @@
   }
 
   /* Remove hover effects on touch devices */
-  .about-card:hover,
   .pricing-card:hover {
     transform: none;
     box-shadow: 0 2px 8px var(--shadow-light);
@@ -475,7 +437,6 @@
     color: black;
   }
 
-  .about-card,
   .pricing-card,
   .question-item {
     border: 1px solid #ccc;
@@ -518,7 +479,6 @@
     border-bottom-color: #404040;
   }
 
-  .about-card,
   .pricing-card,
   .contact-form,
   .results-area {
@@ -542,10 +502,6 @@
 
   .demo-container {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .about-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 

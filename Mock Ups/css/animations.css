@@ -141,120 +141,6 @@
   }
 }
 
-/* ========== ABOUT CARDS STAGGER ========== */
-.about-card.reveal-scale:nth-child(1).active {
-  animation: cardSlideUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.about-card.reveal-scale:nth-child(2).active {
-  animation: cardSlideUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards;
-}
-
-.about-card.reveal-scale:nth-child(3).active {
-  animation: cardSlideUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
-}
-
-@keyframes cardSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(60px) scale(0.9);
-  }
-  60% {
-    transform: translateY(-10px) scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Card icon animation on reveal */
-.about-card.active .card-icon {
-  animation: iconPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s backwards;
-}
-
-.about-card.active .icon-glow {
-  animation: glowFadeIn 0.8s ease-out 0.5s forwards;
-}
-
-@keyframes iconPopIn {
-  0% {
-    opacity: 0;
-    transform: scale(0) rotate(-20deg);
-  }
-  70% {
-    transform: scale(1.15) rotate(5deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-}
-
-@keyframes glowFadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-  }
-  to {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-/* Card number fade in */
-.about-card.active .card-number {
-  animation: numberFadeIn 0.5s ease-out 0.2s backwards;
-}
-
-@keyframes numberFadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Metrics pills stagger animation */
-.about-card.active .metric {
-  animation: metricPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
-}
-
-.about-card.active .metric:nth-child(1) { animation-delay: 0.5s; }
-.about-card.active .metric:nth-child(2) { animation-delay: 0.6s; }
-.about-card.active .metric:nth-child(3) { animation-delay: 0.7s; }
-.about-card.active .metric:nth-child(4) { animation-delay: 0.8s; }
-
-@keyframes metricPop {
-  from {
-    opacity: 0;
-    transform: scale(0) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* Highlight text animation */
-.about-card.active .highlight-text {
-  animation: highlightSlide 0.5s ease-out 0.6s backwards;
-}
-
-@keyframes highlightSlide {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Legacy icon spin animation for backwards compat */
 @keyframes iconSpinIn {
   from {
@@ -488,13 +374,11 @@
 }
 
 /* ========== CARD HOVER ANIMATIONS ========== */
-.about-card,
 .pricing-card {
   position: relative;
   overflow: hidden;
 }
 
-.about-card::after,
 .pricing-card::after {
   content: '';
   position: absolute;
@@ -507,7 +391,6 @@
   transition: transform 0.6s;
 }
 
-.about-card:hover::after,
 .pricing-card:hover::after {
   transform: rotate(45deg) translateX(100%);
 }
@@ -559,16 +442,16 @@
 
 /* Subtle glow for active elements */
 .glow {
-  box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
   animation: glow 2s ease-in-out infinite;
 }
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(74, 144, 226, 0.5);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
   }
 }
 
@@ -705,7 +588,7 @@
 /* ========== HERO SECTION WITH CREATIVE BACKGROUND ========== */
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -718,7 +601,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  background: var(--gradient-hero);
   z-index: 0;
 }
 
@@ -729,9 +612,8 @@
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(120, 0, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(0, 200, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 0, 150, 0.15) 0%, transparent 60%);
+    radial-gradient(ellipse at 18% 82%, rgba(249, 115, 22, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 18%, rgba(251, 146, 60, 0.06) 0%, transparent 55%);
   animation: overlayPulse 8s ease-in-out infinite;
 }
 
@@ -751,14 +633,14 @@
 .shape {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.5;
+  filter: blur(70px);
+  opacity: 0.14;
 }
 
 .shape-1 {
   width: 400px;
   height: 400px;
-  background: linear-gradient(135deg, #00426B, #003655);
+  background: linear-gradient(135deg, #F97316, #EA580C);
   top: -100px;
   right: -100px;
   animation: floatShape1 20s ease-in-out infinite;
@@ -767,7 +649,7 @@
 .shape-2 {
   width: 300px;
   height: 300px;
-  background: linear-gradient(135deg, #00426B, #00426B);
+  background: linear-gradient(135deg, #F97316, #F97316);
   bottom: -50px;
   left: -50px;
   animation: floatShape2 15s ease-in-out infinite;
@@ -776,7 +658,7 @@
 .shape-3 {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg, #1B5C8A, #003655);
+  background: linear-gradient(135deg, #FB923C, #EA580C);
   top: 50%;
   left: 10%;
   animation: floatShape3 18s ease-in-out infinite;
@@ -785,7 +667,7 @@
 .shape-4 {
   width: 250px;
   height: 250px;
-  background: linear-gradient(135deg, #00426B, #00426B);
+  background: linear-gradient(135deg, #F97316, #F97316);
   bottom: 30%;
   right: 10%;
   animation: floatShape4 22s ease-in-out infinite;
@@ -827,7 +709,7 @@
   font-weight: 800;
   line-height: 1.15;
   margin: 0 0 1.5rem;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  color: var(--dark-text);
 }
 
 .quote-line {
@@ -838,16 +720,16 @@
 
 .quote-line.line-1 {
   animation: slideInQuote 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-  color: #ffffff;
+  color: var(--dark-text);
 }
 
 .quote-line.line-2 {
   animation: slideInQuote 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-  color: #ffffff;
+  color: var(--dark-text);
 }
 
 .quote-line .highlight {
-  background: linear-gradient(135deg, #00426B 0%, #1B5C8A 50%, #00426B 100%);
+  background: linear-gradient(135deg, #F97316 0%, #FB923C 50%, #F97316 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -869,7 +751,7 @@
   left: 0;
   width: 0;
   height: 4px;
-  background: linear-gradient(90deg, #00426B, #1B5C8A, #00426B);
+  background: linear-gradient(90deg, #F97316, #FB923C, #F97316);
   background-size: 200% 100%;
   animation: underlineGrow 0.8s ease-out 1.4s forwards, gradientFlow 3s ease-in-out infinite;
   border-radius: 2px;
@@ -877,9 +759,9 @@
 
 .hero-subtext {
   font-size: clamp(1rem, 2vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0 auto 2rem;
-  max-width: 600px;
+  color: var(--medium-text);
+  margin: 0 0 2rem;
+  max-width: 540px;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 1s forwards;
 }
@@ -890,7 +772,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #00426B, #003655);
+  background: linear-gradient(135deg, #F97316, #EA580C);
   border: none;
   border-radius: 50px;
   text-decoration: none;
@@ -899,12 +781,12 @@
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out 1.2s forwards;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 10px 40px rgba(0, 66, 107, 0.4);
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.35);
 }
 
 .hero-cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 50px rgba(0, 66, 107, 0.6);
+  box-shadow: 0 15px 40px rgba(249, 115, 22, 0.5);
 }
 
 @keyframes slideInQuote {
@@ -1007,7 +889,7 @@
 }
 
 .typing-cursor {
-  color: #00426B;
+  color: #F97316;
   animation: blink 0.8s infinite;
   font-weight: 100;
 }
@@ -1025,7 +907,7 @@
 
 .feedback-suggestion {
   background: linear-gradient(135deg, rgba(0, 66, 107, 0.15), rgba(0, 54, 85, 0.15));
-  border-left: 3px solid #00426B;
+  border-left: 3px solid #F97316;
   border-radius: 0 8px 8px 0;
   padding: 14px 16px;
   margin-bottom: 8px;
@@ -1082,7 +964,7 @@
 }
 
 .feedback-icon {
-  color: #00426B;
+  color: #F97316;
   font-size: 1rem;
 }
 
@@ -1103,13 +985,13 @@
 .mini-score-fill {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, #00426B, #003655);
+  background: linear-gradient(90deg, #F97316, #EA580C);
   border-radius: 3px;
   transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mini-score-value {
-  color: #00426B;
+  color: #F97316;
   font-size: 0.85rem;
   font-weight: 600;
   min-width: 40px;
@@ -1125,24 +1007,12 @@
 }
 
 /* ========== REDUCED MOTION ========== */
-/* Floating viral-clip backdrop drift (used by .clip-phone in #about) */
-@keyframes clipDriftA {
-  0%, 100% { transform: translateY(0)     rotate(var(--clip-rot, 0deg)); }
-  50%      { transform: translateY(-24px) rotate(calc(var(--clip-rot, 0deg) + 3deg)); }
-}
-
-@keyframes clipDriftB {
-  0%, 100% { transform: translateX(0)     scale(1)    rotate(var(--clip-rot, 0deg)); }
-  50%      { transform: translateX(18px)  scale(1.02) rotate(calc(var(--clip-rot, 0deg) - 2deg)); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-fade,
   .reveal-scale,
   .reveal-left,
   .reveal-right,
-  .about-card,
   .pricing-card,
   .question-item,
   .quote-line,
@@ -1165,7 +1035,6 @@
 
   .typing-cursor,
   .shape,
-  .clip-phone,
   .hero-overlay,
   .quote-line .highlight,
   .feedback-suggestion {
@@ -1176,4 +1045,14 @@
     opacity: 1 !important;
     transform: none !important;
   }
+
+  .composer-typed::after {
+    animation: none !important;
+  }
+}
+
+/* Blinking caret for the "AI is writing your pitch" composer mock (#how-it-works) */
+@keyframes composerCaret {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
 }

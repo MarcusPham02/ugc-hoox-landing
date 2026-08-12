@@ -40,11 +40,14 @@ The token **names** reflect an old blue palette and may read "wrong" (e.g. `--ac
 `--accent-dark`, `--accent-green`). **Never introduce a new variable just because a name looks
 off, and never rename one.** To recolor, change the value under the existing name.
 
-⚠️ **Palette discrepancy — flag, don't silently pick a side.** The project docs and memory
-describe an "Indigo Clean" palette (`#5A57F2` + mint), but the current `main.css` `:root`
-actually holds **blue** values (`--accent-dark: #00426B`, `--accent-blue: #003655`,
-`--accent-green: #00426B`, blue gradients). These conflict. If a task depends on which palette is
-intended, surface the discrepancy and ask before recoloring — do not assume.
+⚠️ **Names lag the values — names old, values now orange.** The palette is the
+**"Sunset Orange"** scheme: `--accent-blue` holds `#F97316` (orange) and `--accent-dark` holds
+`#EA580C` (darker orange), `--accent-green` is `#12B886` (mint), and the button/accent gradients
+run orange → light-orange (`#F97316` → `#FB923C`). The old blue hexes (`#00426B`, `#003655`,
+`#1B5C8A`) were remapped to the orange family (`#F97316`, `#EA580C`, `#FB923C`) across
+`components.css` and `animations.css`, so there should be no raw dark-blue hexes left. Recolor by
+changing the **value** under the existing name — do not rename tokens, and don't reintroduce a blue
+hex just because a token name reads "blue."
 
 ### 3. A section not animating on scroll is usually a JS class issue, not a CSS bug
 Scroll reveal is driven by `Mock Ups/js/scroll-reveal.js` (an IntersectionObserver that adds
