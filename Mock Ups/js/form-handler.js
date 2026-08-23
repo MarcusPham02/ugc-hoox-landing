@@ -149,7 +149,7 @@
    *   message    text
    *   created_at timestamptz default now()
    */
-  function submitToSupabase(name, email, message) {
+  function submitToSupabase(name, email, message, variant) {
     var client = getSupabaseClient();
 
     if (!client) {
@@ -159,7 +159,7 @@
 
     return client
       .from('waitlist')
-      .insert([{ name: name, email: email, message: message }])
+      .insert([{ name: name, email: email, message: message, variant: variant || null }])
       .then(function(result) {
         if (result.error) {
           throw result.error;
@@ -268,11 +268,12 @@
     var name    = (formObject['name']    || '').trim();
     var email   = (formObject['email']   || '').trim();
     var message = (formObject['message'] || '').trim();
+    var variant = (formObject['variant'] || '').trim();
 
     // Fire both destinations in parallel; neither blocks the other
     Promise.allSettled([
       submitToNetlify(form, formObject),
-      submitToSupabase(name, email, message)
+      submitToSupabase(name, email, message, variant)
     ]).then(function(results) {
       var netlifyResult  = results[0];
       var supabaseResult = results[1];

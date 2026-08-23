@@ -2004,3 +2004,10 @@
     transform: rotate(90deg);
   }
 }
+
+/* ========== A/B CTA LABEL TOGGLE ========== */
+/* The inline <head> script sets data-ab-cta="A"|"B" on <html> before paint.
+   Default (A, or attribute missing) shows .ab-a; variant B shows .ab-b. */
+.ab-cta .ab-b { display: none; }
+[data-ab-cta="B"] .ab-cta .ab-a { display: none; }
+[data-ab-cta="B"] .ab-cta .ab-b { display: inline; }

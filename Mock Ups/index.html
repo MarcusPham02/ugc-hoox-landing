@@ -6,6 +6,28 @@
     <meta name="description" content="UGC Hoox - Elevate your user-generated content with AI-powered analysis and feedback">
     <title>UGC Hoox - AI-Powered Content Analysis</title>
 
+    <!-- A/B test: assign a sticky CTA variant before paint so there's no flicker.
+         A = "Get Early Access", B = "Join the Waitlist". CSS swaps the label off
+         the data-ab-cta attribute; the value also rides along on the form. -->
+    <script>
+      (function () {
+        var KEY = 'ugchoox_ab_cta';
+        var v;
+        try {
+          v = localStorage.getItem(KEY);
+          if (v !== 'A' && v !== 'B') {
+            v = Math.random() < 0.5 ? 'A' : 'B';
+            localStorage.setItem(KEY, v);
+          }
+        } catch (e) { v = 'A'; }
+        document.documentElement.setAttribute('data-ab-cta', v);
+        document.addEventListener('DOMContentLoaded', function () {
+          var field = document.getElementById('abVariant');
+          if (field) { field.value = v; }
+        });
+      })();
+    </script>
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
@@ -57,7 +79,7 @@
                         </ul>
                     </div>
 
-                    <a href="#contact" class="btn-waitlist">Join Waitlist</a>
+                    <a href="#contact" class="btn-waitlist ab-cta"><span class="ab-a">Get Early Access</span><span class="ab-b">Join Waitlist</span></a>
 
                     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                         <span></span>
@@ -91,7 +113,7 @@
                             <span class="quote-line line-2">AI Writes <span class="highlight">the Pitch.</span></span>
                         </h1>
                         <p class="hero-subtext">Tell UGC Hoox the brand you want to work with. It writes a tailored pitch that actually gets replies — so you stop guessing and start landing paid deals.</p>
-                        <a href="#contact" class="hero-cta-btn">Get Early Access</a>
+                        <a href="#contact" class="hero-cta-btn ab-cta"><span class="ab-a">Get Early Access</span><span class="ab-b">Join the Waitlist</span></a>
                         <p class="hero-roadmap">Hook scoring &amp; a content calendar are on the way.</p>
                     </div>
 
@@ -164,7 +186,7 @@
                     </div>
                 </div>
 
-                <a href="#contact" class="story-cta">Get early access &rarr;</a>
+                <a href="#contact" class="story-cta ab-cta"><span class="ab-a">Get early access</span><span class="ab-b">Join the waitlist</span> &rarr;</a>
             </div>
         </section>
 
@@ -343,6 +365,8 @@
                 >
                     <!-- Honeypot field for spam prevention -->
                     <input type="hidden" name="form-name" value="contact">
+                    <!-- A/B variant the visitor saw; set by the inline head script -->
+                    <input type="hidden" name="variant" id="abVariant" value="">
                     <p class="hidden" style="display:none;">
                         <label>Don't fill this out: <input name="bot-field"></label>
                     </p>
