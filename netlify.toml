@@ -1,0 +1,49 @@
+# Netlify configuration for UGC Hoox landing page.
+# Lives at the repo ROOT so Netlify always finds it — `base` points the build
+# at the Mock Ups/ subfolder, so no manual "base directory" setting is needed
+# in the Netlify UI.
+
+[build]
+  base    = "Mock Ups"   # build runs here; command + publish are relative to it
+  publish = "."          # publish Mock Ups/ (its index.html, css/, js/)
+  # Inject Supabase credentials from Netlify env vars at deploy time.
+  # Keep the YOUR_SUPABASE_* placeholder strings byte-for-byte in index.html.
+  # If the env vars are unset, the placeholders become empty and the client
+  # skips Supabase gracefully (Netlify Forms still records the signup).
+  command = "sed -i \"s|YOUR_SUPABASE_URL|$SUPABASE_URL|g\" index.html && sed -i \"s|YOUR_SUPABASE_ANON_KEY|$SUPABASE_ANON_KEY|g\" index.html"
+
+# Netlify Forms needs HTML processing on so it can parse & register the form.
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# CSS/JS filenames are NOT fingerprinted, so don't cache them long — otherwise
+# a deploy won't reach returning visitors. max-age=0 + must-revalidate lets the
+# browser use its cached copy only after a cheap ETag revalidation (304 when
+# unchanged), so updates go live immediately. Raise this once the page stabilizes.
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Baseline security headers (safe for a static marketing page; no CSP because
+# the page uses inline scripts + the Supabase CDN).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Serve index.html at the root path.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 200

@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Local scratch / QA files not meant to deploy
+Mock Ups/_verify.html
+
+# Local env / secrets (never commit real Supabase keys)
+.env
+.env.*
