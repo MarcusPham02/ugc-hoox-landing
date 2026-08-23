@@ -234,9 +234,11 @@
 
     var form = e.target;
 
-    // Validate all fields
+    // Validate required fields. 'message' is optional (see the waitlist form),
+    // so it's excluded here; its min-length check in validateField only fires
+    // when a value is actually present.
     var isValid = true;
-    var fields = ['name', 'email', 'message'];
+    var fields = ['name', 'email'];
 
     fields.forEach(function(fieldName) {
       var field = form[fieldName];
@@ -323,8 +325,9 @@
     // Remove previous error state
     clearFieldError(field);
 
-    // Required field validation
-    if (!value) {
+    // Required field validation — only for fields marked `required` in the HTML.
+    // Optional fields (e.g. the waitlist message) may be left blank.
+    if (!value && field.required) {
       isValid = false;
       errorMessage = 'This field is required.';
     }
@@ -353,7 +356,9 @@
     // Show error if invalid
     if (!isValid) {
       showFieldError(field, errorMessage);
-    } else {
+    } else if (value) {
+      // Only mark a field "success" when it actually has a value, so an empty
+      // optional field doesn't turn green on blur.
       field.classList.add('success');
       field.classList.remove('error');
     }
